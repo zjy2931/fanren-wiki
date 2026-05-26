@@ -1,0 +1,212 @@
+[
+  {
+    "id": "1",
+    "name": "青竹蜂云剑",
+    "category": "treasure",
+    "coverImage": "",
+    "summary": "韩立的本命法宝，由七十二口飞剑组成，可分可合，能布成剑阵。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d1",
+        "content": "青竹蜂云剑是韩立以金雷竹炼成的本命飞剑，剑身青光流转，兼具锋锐与辟邪之力。七十二口飞剑可单独御使，也可结成剑阵，是韩立纵横诸界的重要倚仗。",
+        "votes": 15,
+        "submittedBy": "凡人迷",
+        "submittedAt": "2025-01-15"
+      },
+      {
+        "id": "d2",
+        "content": "此剑最特别之处在于能与辟邪神雷相辅相成，面对魔修、鬼物与邪法时威力倍增。",
+        "votes": 8,
+        "submittedBy": "修仙考据",
+        "submittedAt": "2025-02-20"
+      }
+    ],
+    "videos": [],
+    "tags": ["飞剑", "本命法宝", "韩立"],
+    "createdAt": "2025-01-01",
+    "updatedAt": "2025-03-01"
+  },
+  {
+    "id": "2",
+    "name": "辟邪神雷",
+    "category": "treasure",
+    "coverImage": "",
+    "summary": "金雷竹孕育出的金色雷电，对妖魔鬼怪和邪祟之物有强烈克制。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d3",
+        "content": "辟邪神雷源自金雷竹，是韩立手中最具辨识度的神通力量之一。其雷光呈金色，专克阴邪，常与青竹蜂云剑配合使用。",
+        "votes": 20,
+        "submittedBy": "道友",
+        "submittedAt": "2025-01-20"
+      }
+    ],
+    "videos": [],
+    "tags": ["神雷", "金雷竹", "克邪"],
+    "createdAt": "2025-01-05",
+    "updatedAt": "2025-03-05"
+  },
+  {
+    "id": "3",
+    "name": "韩立",
+    "category": "character",
+    "coverImage": "",
+    "summary": "凡人修仙传主角，资质平凡却谨慎坚韧，凭机缘、心性与取舍一步步踏上长生大道。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d4",
+        "content": "韩立出身贫寒，幼年被三叔带入七玄门，后因小绿瓶踏入修仙世界。他行事低调谨慎，善于审时度势，也能在关键处果断出手。",
+        "votes": 51,
+        "submittedBy": "韩立粉丝",
+        "submittedAt": "2025-01-01"
+      },
+      {
+        "id": "d5",
+        "content": "韩立并非传统意义上的天命英雄，他的魅力来自凡人心性：怕死、谨慎、重诺，也从不把自己置于无谓的险地。",
+        "votes": 39,
+        "submittedBy": "分析帝",
+        "submittedAt": "2025-02-01"
+      }
+    ],
+    "videos": [],
+    "tags": ["主角", "修仙者", "天南"],
+    "createdAt": "2025-01-01",
+    "updatedAt": "2026-05-25"
+  },
+  {
+    "id": "4",
+    "name": "南宫婉",
+    "category": "character",
+    "coverImage": "",
+    "summary": "掩月宗女修，与韩立有深厚因缘，是韩立修仙路上极重要的人物。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d6",
+        "content": "南宫婉是掩月宗核心弟子，修为高深，性情清冷而坚定。她与韩立在血色禁地相遇，自此牵出一段横跨漫长修仙岁月的缘分。",
+        "votes": 30,
+        "submittedBy": "婉儿粉",
+        "submittedAt": "2025-01-10"
+      }
+    ],
+    "videos": [],
+    "tags": ["道侣", "掩月宗", "女主"],
+    "createdAt": "2025-01-02",
+    "updatedAt": "2025-02-15"
+  },
+  {
+    "id": "5",
+    "name": "大衍诀",
+    "category": "technique",
+    "coverImage": "",
+    "summary": "强化神识的高阶功法，修炼后能显著提升神念与操控能力。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d7",
+        "content": "大衍诀以神识修炼见长，层层递进。它帮助韩立在控宝、御阵与对敌判断上取得优势，也是他后期实力体系的重要组成。",
+        "votes": 18,
+        "submittedBy": "功法研究者",
+        "submittedAt": "2025-02-01"
+      }
+    ],
+    "videos": [],
+    "tags": ["功法", "神识", "大衍神君"],
+    "createdAt": "2025-01-15",
+    "updatedAt": "2025-03-01"
+  },
+  {
+    "id": "6",
+    "name": "长春功",
+    "category": "technique",
+    "coverImage": "",
+    "summary": "韩立最初修炼的基础功法，也是他踏入修仙世界的起点。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d8",
+        "content": "长春功来自墨大夫，是韩立早期修炼的功法。它本身并不张扬，却改变了韩立的命运，让一个凡人少年第一次触碰到灵气与长生的门槛。",
+        "votes": 25,
+        "submittedBy": "起点读者",
+        "submittedAt": "2025-01-25"
+      }
+    ],
+    "videos": [],
+    "tags": ["功法", "起点", "墨大夫"],
+    "createdAt": "2025-01-20",
+    "updatedAt": "2025-03-05"
+  },
+  {
+    "id": "7",
+    "name": "初入江湖",
+    "category": "episode",
+    "coverImage": "",
+    "summary": "韩立从凡人少年进入七玄门，逐步接触修仙世界的开端篇章。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d9",
+        "content": "这一阶段呈现韩立的出身、七玄门经历与墨大夫阴谋。它奠定了韩立谨慎求生的底色，也让观众看见凡人踏入仙途前的沉重代价。",
+        "votes": 40,
+        "submittedBy": "追番达人",
+        "submittedAt": "2025-01-01"
+      }
+    ],
+    "videos": [
+      {
+        "id": "v1",
+        "platform": "bilibili",
+        "url": "https://www.bilibili.com/bangumi/play/ss12345",
+        "title": "凡人修仙传 初入江湖篇",
+        "votes": 30,
+        "submittedBy": "B站用户",
+        "submittedAt": "2025-01-01"
+      }
+    ],
+    "tags": ["第一季", "起点", "七玄门"],
+    "createdAt": "2025-01-01",
+    "updatedAt": "2025-03-01"
+  },
+  {
+    "id": "8",
+    "name": "血色禁地篇",
+    "category": "episode",
+    "coverImage": "",
+    "summary": "韩立参与血色禁地试炼，获得关键法宝材料，并与南宫婉产生重要交集。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d10",
+        "content": "血色禁地篇是韩立早期修仙路的重要转折。试炼中门派博弈、宝物争夺与生死抉择并行，青竹蜂云剑材料和南宫婉的线索都在此埋下。",
+        "votes": 34,
+        "submittedBy": "剧情党",
+        "submittedAt": "2025-02-01"
+      }
+    ],
+    "videos": [
+      {
+        "id": "v2",
+        "platform": "bilibili",
+        "url": "https://www.bilibili.com/bangumi/play/ss67890",
+        "title": "凡人修仙传 血色禁地篇",
+        "votes": 25,
+        "submittedBy": "B站用户",
+        "submittedAt": "2025-02-01"
+      }
+    ],
+    "tags": ["血色禁地", "试炼", "法宝"],
+    "createdAt": "2025-02-01",
+    "updatedAt": "2026-05-25"
+  }
+]

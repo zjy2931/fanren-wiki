@@ -1,0 +1,12 @@
+{
+  "keys": [
+    "your-secret-key-1",
+    "your-secret-key-2",
+    "your-secret-key-3"
+  ],
+  "holders": {
+    "your-secret-key-1": "掌令使",
+    "your-secret-key-2": "副令使",
+    "your-secret-key-3": "巡山使"
+  }
+}
