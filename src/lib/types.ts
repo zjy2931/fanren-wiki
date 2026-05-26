@@ -1,4 +1,4 @@
-export type Category = 'treasure' | 'technique' | 'character' | 'episode'
+export type Category = 'treasure' | 'technique' | 'character' | 'episode' | 'pill' | 'artifact'
 
 export interface ImageCandidate {
   id: string
@@ -55,6 +55,8 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   technique: '功法',
   character: '人物',
   episode: '剧情',
+  pill: '丹药灵材',
+  artifact: '奇物异兽',
 }
 
 export const CATEGORY_DESCRIPTIONS: Record<Category, string> = {
@@ -62,4 +64,6 @@ export const CATEGORY_DESCRIPTIONS: Record<Category, string> = {
   technique: '修炼法门、神通秘术与境界突破线索。',
   character: '人物关系、修为履历与关键抉择。',
   episode: '动画篇章、名场面与事件脉络。',
+  pill: '丹药、灵草、矿石、灵液等天材地宝。',
+  artifact: '元磁神山、灵兽妖兽等不属于他类的奇异之物。',
 }

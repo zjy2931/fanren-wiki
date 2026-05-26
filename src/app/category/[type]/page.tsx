@@ -6,7 +6,7 @@ import { getCategoryGradient } from '@/lib/utils'
 import EntryCard from '@/components/EntryCard'
 import CategoryIcon from '@/components/CategoryIcon'
 
-const validCategories: Category[] = ['treasure', 'technique', 'character', 'episode']
+const validCategories: Category[] = ['treasure', 'technique', 'character', 'episode', 'pill', 'artifact']
 
 export default async function CategoryPage(props: { params: Promise<{ type: string }> }) {
   const { type } = await props.params

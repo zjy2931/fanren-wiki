@@ -23,10 +23,24 @@
         "submittedAt": "2025-02-20"
       }
     ],
-    "videos": [],
-    "tags": ["飞剑", "本命法宝", "韩立"],
+    "videos": [
+      {
+        "id": "d51c7282-8e20-4449-adcf-6cd03c4d06e8",
+        "platform": "bilibili",
+        "url": "https://www.bilibili.com/bangumi/play/ep1231571?spm_id_from=333.337.0.0&from_spmid=666.25.episode.0",
+        "title": "哈哈哈",
+        "votes": 0,
+        "submittedBy": "匿名道友",
+        "submittedAt": "2026-05-26"
+      }
+    ],
+    "tags": [
+      "飞剑",
+      "本命法宝",
+      "韩立"
+    ],
     "createdAt": "2025-01-01",
-    "updatedAt": "2025-03-01"
+    "updatedAt": "2026-05-26"
   },
   {
     "id": "2",
@@ -46,7 +60,11 @@
       }
     ],
     "videos": [],
-    "tags": ["神雷", "金雷竹", "克邪"],
+    "tags": [
+      "神雷",
+      "金雷竹",
+      "克邪"
+    ],
     "createdAt": "2025-01-05",
     "updatedAt": "2025-03-05"
   },
@@ -57,7 +75,16 @@
     "coverImage": "",
     "summary": "凡人修仙传主角，资质平凡却谨慎坚韧，凭机缘、心性与取舍一步步踏上长生大道。",
     "avatars": [],
-    "images": [],
+    "images": [
+      {
+        "id": "f56fab53-a6ec-4a8c-a455-9cce7aeb4d6e",
+        "url": "/uploads/1c335f2a.png",
+        "description": "",
+        "votes": 0,
+        "submittedBy": "匿名道友",
+        "submittedAt": "2026-05-26"
+      }
+    ],
     "descriptions": [
       {
         "id": "d4",
@@ -75,9 +102,13 @@
       }
     ],
     "videos": [],
-    "tags": ["主角", "修仙者", "天南"],
+    "tags": [
+      "主角",
+      "修仙者",
+      "天南"
+    ],
     "createdAt": "2025-01-01",
-    "updatedAt": "2026-05-25"
+    "updatedAt": "2026-05-26"
   },
   {
     "id": "4",
@@ -97,7 +128,11 @@
       }
     ],
     "videos": [],
-    "tags": ["道侣", "掩月宗", "女主"],
+    "tags": [
+      "道侣",
+      "掩月宗",
+      "女主"
+    ],
     "createdAt": "2025-01-02",
     "updatedAt": "2025-02-15"
   },
@@ -119,7 +154,11 @@
       }
     ],
     "videos": [],
-    "tags": ["功法", "神识", "大衍神君"],
+    "tags": [
+      "功法",
+      "神识",
+      "大衍神君"
+    ],
     "createdAt": "2025-01-15",
     "updatedAt": "2025-03-01"
   },
@@ -141,7 +180,11 @@
       }
     ],
     "videos": [],
-    "tags": ["功法", "起点", "墨大夫"],
+    "tags": [
+      "功法",
+      "起点",
+      "墨大夫"
+    ],
     "createdAt": "2025-01-20",
     "updatedAt": "2025-03-05"
   },
@@ -173,7 +216,11 @@
         "submittedAt": "2025-01-01"
       }
     ],
-    "tags": ["第一季", "起点", "七玄门"],
+    "tags": [
+      "第一季",
+      "起点",
+      "七玄门"
+    ],
     "createdAt": "2025-01-01",
     "updatedAt": "2025-03-01"
   },
@@ -205,8 +252,64 @@
         "submittedAt": "2025-02-01"
       }
     ],
-    "tags": ["血色禁地", "试炼", "法宝"],
+    "tags": [
+      "血色禁地",
+      "试炼",
+      "法宝"
+    ],
     "createdAt": "2025-02-01",
     "updatedAt": "2026-05-25"
+  },
+  {
+    "id": "9",
+    "name": "筑基丹",
+    "category": "pill",
+    "coverImage": "",
+    "summary": "帮助修士从炼气期突破至筑基期的关键丹药，是修仙路上第一道天堑的通行证。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d11",
+        "content": "筑基丹是修仙界最常见的突破丹药之一，能够大幅提升炼气修士筑基的成功率。丹药品质分三六九等，上品筑基丹甚至能引动天地灵气辅助突破。",
+        "votes": 22,
+        "submittedBy": "丹道研究者",
+        "submittedAt": "2025-03-01"
+      }
+    ],
+    "videos": [],
+    "tags": [
+      "丹药",
+      "筑基",
+      "突破"
+    ],
+    "createdAt": "2025-03-01",
+    "updatedAt": "2026-05-26"
+  },
+  {
+    "id": "10",
+    "name": "元磁神山",
+    "category": "artifact",
+    "coverImage": "",
+    "summary": "上古奇物，蕴含元磁之力，可克制五行法术，曾被韩立收入囊中。",
+    "avatars": [],
+    "images": [],
+    "descriptions": [
+      {
+        "id": "d12",
+        "content": "元磁神山是上古修士遗留的奇物，其元磁之力专克五行法术，任何五行属性的法宝和神通在其面前都要大打折扣。韩立在乱星海时期获得此物，在多次对敌中发挥奇效。",
+        "votes": 28,
+        "submittedBy": "古宝收藏家",
+        "submittedAt": "2025-03-10"
+      }
+    ],
+    "videos": [],
+    "tags": [
+      "元磁",
+      "上古奇物",
+      "克五行"
+    ],
+    "createdAt": "2025-03-10",
+    "updatedAt": "2026-05-26"
   }
 ]

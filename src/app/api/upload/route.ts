@@ -1,9 +1,34 @@
 import { NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
 import { v4 as uuidv4 } from 'uuid'
+import { getCloudflareContext } from '@opennextjs/cloudflare'
 
-async function saveFile(file: File): Promise<string> {
+function isProduction(): boolean {
+  return process.env.NODE_ENV === 'production'
+}
+
+function getD1(): D1Database | null {
+  if (!isProduction()) return null
+  try {
+    const ctx = getCloudflareContext()
+    return (ctx?.env as Record<string, unknown>)?.DB as D1Database | null ?? null
+  } catch {
+    return null
+  }
+}
+
+function getKV(): KVNamespace | null {
+  if (!isProduction()) return null
+  try {
+    const ctx = getCloudflareContext()
+    return (ctx?.env as Record<string, unknown>)?.IMAGES_KV as KVNamespace | null ?? null
+  } catch {
+    return null
+  }
+}
+
+async function saveFileLocal(file: File): Promise<string> {
+  const fs = await import('fs/promises')
+  const path = await import('path')
   const ext = file.name.split('.').pop() || 'jpg'
   const fileName = `${uuidv4().slice(0, 8)}.${ext}`
   const uploadDir = path.join(process.cwd(), 'public', 'uploads')
@@ -12,6 +37,18 @@ async function saveFile(file: File): Promise<string> {
   const bytes = await file.arrayBuffer()
   await fs.writeFile(filePath, Buffer.from(bytes))
   return `/uploads/${fileName}`
+}
+
+async function saveFileKV(file: File): Promise<string> {
+  const kv = getKV()
+  if (!kv) throw new Error('KV not available')
+  const ext = file.name.split('.').pop() || 'jpg'
+  const key = `img/${uuidv4().slice(0, 12)}.${ext}`
+  const bytes = await file.arrayBuffer()
+  await kv.put(key, bytes, {
+    httpMetadata: { contentType: file.type },
+  })
+  return `/api/image/${key}`
 }
 
 export async function POST(request: Request) {
@@ -34,7 +71,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: '文件不能超过 5MB' }, { status: 400 })
   }
 
-  const url = await saveFile(file)
+  let url: string
+  if (getKV()) {
+    url = await saveFileKV(file)
+  } else {
+    url = await saveFileLocal(file)
+  }
 
   if (mode === 'avatar' && entryId) {
     const { getAllEntries, saveAllEntries } = await import('@/lib/data')

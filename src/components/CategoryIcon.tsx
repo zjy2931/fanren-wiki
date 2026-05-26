@@ -1,4 +1,4 @@
-import { Clapperboard, Flame, ScrollText, Sword, UserRound } from 'lucide-react'
+import { Clapperboard, FlaskConical, ScrollText, Sparkles, Sword, UserRound } from 'lucide-react'
 import type { Category } from '@/lib/types'
 
 interface CategoryIconProps {
@@ -12,6 +12,8 @@ const iconMap = {
   technique: ScrollText,
   character: UserRound,
   episode: Clapperboard,
+  pill: FlaskConical,
+  artifact: Sparkles,
 }
 
 export default function CategoryIcon({ category, className, size = 24 }: CategoryIconProps) {

@@ -7,7 +7,7 @@ import CategoryIcon from '@/components/CategoryIcon'
 import type { Category } from '@/lib/types'
 import { CATEGORY_LABELS } from '@/lib/types'
 
-const categories: Category[] = ['treasure', 'technique', 'character', 'episode']
+const categories: Category[] = ['treasure', 'technique', 'character', 'episode', 'pill', 'artifact']
 
 export default function SubmitPage() {
   const router = useRouter()
@@ -71,7 +71,7 @@ export default function SubmitPage() {
 
           <fieldset>
             <legend className="mb-1.5 block text-sm text-[#a09478]">分类 *</legend>
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
               {categories.map((cat) => (
                 <button
                   key={cat}

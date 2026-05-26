@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "fanren-wiki",
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "fanren-wiki"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fanren-wiki-db",
+      "database_id": "fa476316-4bab-4282-8459-cd4b15b6e538",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "IMAGES_KV",
+      "id": "e73db0007aa2406c862a098b22dacdc4"
+    }
+  ]
+}

@@ -3,23 +3,13 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { BookOpen, Clapperboard, Gem, Home, KeyRound, LogOut, Menu, Plus, ScrollText, UserRound, X } from 'lucide-react'
+import { BookOpen, KeyRound, LogOut, Menu, X } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
-import SubmitEntryModal from '@/components/SubmitEntryModal'
-
-const navItems = [
-  { href: '/', label: '首页', icon: Home },
-  { href: '/category/treasure', label: '法宝', icon: Gem },
-  { href: '/category/technique', label: '功法', icon: ScrollText },
-  { href: '/category/character', label: '人物', icon: UserRound },
-  { href: '/category/episode', label: '剧情', icon: Clapperboard },
-]
 
 export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [showKeyInput, setShowKeyInput] = useState(false)
-  const [showSubmit, setShowSubmit] = useState(false)
   const [keyValue, setKeyValue] = useState('')
   const [keyError, setKeyError] = useState(false)
   const [keyLoading, setKeyLoading] = useState(false)
@@ -55,26 +45,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <div className="hidden items-center gap-1 md:flex">
-              {navItems.map((item) => {
-                const Icon = item.icon
-                const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href)
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`focus-ring flex min-h-11 items-center gap-2 rounded-md px-3 text-sm transition-all duration-200 ${
-                      active
-                        ? 'bg-[#1a160e] text-[#e8c96a] shadow-[inset_0_0_0_1px_rgba(201,162,77,0.18)]'
-                        : 'text-[#a09478] hover:bg-white/[0.04] hover:text-[#e5ddd0]'
-                    }`}
-                  >
-                    <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
-                    {item.label}
-                  </Link>
-                )
-              })}
-            </div>
+
 
             <div className="hidden items-center gap-2 md:flex">
               {verified ? (
@@ -103,14 +74,6 @@ export default function Navbar() {
                 </button>
               )}
 
-              <button
-                type="button"
-                onClick={() => setShowSubmit(true)}
-                className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-md bg-[#c9a24d] px-4 text-sm font-medium text-[#0c0a08] transition-all duration-200 hover:bg-[#e8c96a]"
-              >
-                <Plus size={16} strokeWidth={2} aria-hidden="true" />
-                新建词条
-              </button>
             </div>
 
             <button
@@ -125,35 +88,7 @@ export default function Navbar() {
           </div>
 
           {open && (
-            <div className="space-y-1 pb-4 md:hidden">
-            {[...navItems, { href: '__submit__', label: '新建词条', icon: Plus }].map((item) => {
-              const Icon = item.icon
-              if (item.href === '__submit__') {
-                return (
-                  <button
-                    key="submit"
-                    type="button"
-                    onClick={() => { setOpen(false); setShowSubmit(true) }}
-                    className="focus-ring flex min-h-11 w-full items-center gap-3 rounded-md px-3 text-left text-sm text-[#c9be9f] transition-colors hover:bg-white/[0.04]"
-                  >
-                    <Icon size={17} strokeWidth={1.8} aria-hidden="true" />
-                    {item.label}
-                  </button>
-                )
-              }
-              return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="focus-ring flex min-h-11 items-center gap-3 rounded-md px-3 text-sm text-[#c9be9f] transition-colors hover:bg-white/[0.04]"
-                  >
-                    <Icon size={17} strokeWidth={1.8} aria-hidden="true" />
-                    {item.label}
-                  </Link>
-                )
-              })}
-            </div>
+            <div className="pb-4 md:hidden" />
           )}
         </div>
       </nav>
@@ -190,7 +125,6 @@ export default function Navbar() {
         </div>
       )}
 
-      {showSubmit && <SubmitEntryModal onClose={() => setShowSubmit(false)} />}
     </>
   )
 }

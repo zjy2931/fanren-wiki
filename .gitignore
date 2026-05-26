@@ -54,3 +54,11 @@ public/bg-compressed.mp4
 AGENTS.md
 CLAUDE.md
 .claude/
+
+# open-next build output
+.open-next/
+
+# cloudflare dev vars
+.dev.vars
+cloudflare-env.d.ts
+.wrangler/

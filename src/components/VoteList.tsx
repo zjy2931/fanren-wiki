@@ -1,10 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ExternalLink, ThumbsDown, ThumbsUp, Trash2 } from 'lucide-react'
 import type { AvatarCandidate, Category, DescCandidate, ImageCandidate, VideoLink } from '@/lib/types'
 import { getCategoryTextColor } from '@/lib/utils'
 import { useAuth } from '@/context/AuthContext'
+
+const PAGE_SIZE = 12
 
 interface VoteListProps {
   entryId: string
@@ -29,15 +31,30 @@ const platformLabel: Record<string, string> = {
 
 export default function VoteList({ entryId, type, items, category, onDelete }: VoteListProps) {
   const [localItems, setLocalItems] = useState([...items])
-  const [expanded, setExpanded] = useState(false)
+  const [page, setPage] = useState(1)
   const { verified, key } = useAuth()
+  const observerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setLocalItems([...items])
+    setPage(1)
   }, [items])
 
   const sorted = [...localItems].sort((a, b) => b.votes - a.votes)
-  const displayItems = expanded ? sorted : sorted.slice(0, 3)
+  const displayItems = sorted.slice(0, page * PAGE_SIZE)
+  const hasMore = displayItems.length < sorted.length
+
+  useEffect(() => {
+    if (!hasMore || !observerRef.current) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) setPage((p) => p + 1)
+      },
+      { rootMargin: '200px' }
+    )
+    observer.observe(observerRef.current)
+    return () => observer.disconnect()
+  }, [hasMore])
 
   async function handleVote(itemId: string, direction: 'up' | 'down') {
     const res = await fetch('/api/vote', {
@@ -45,15 +62,13 @@ export default function VoteList({ entryId, type, items, category, onDelete }: V
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ entryId, type, itemId, direction }),
     })
-
     if (res.ok) {
       const data = await res.json()
-      setLocalItems((prev) => {
-        const updated = prev.map((item) =>
+      setLocalItems((prev) =>
+        prev.map((item) =>
           item.id === itemId ? { ...item, votes: data.votes } : item
         ) as typeof prev
-        return updated
-      })
+      )
     }
   }
 
@@ -78,6 +93,59 @@ export default function VoteList({ entryId, type, items, category, onDelete }: V
     )
   }
 
+  if (type === 'image') {
+    return (
+      <div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {displayItems.map((item) => {
+            const img = item as ImageCandidate
+            return (
+              <div key={item.id} className="group relative overflow-hidden rounded-md border border-[#c9a24d]/10 bg-[#0f0d0b]">
+                <div className="aspect-square overflow-hidden">
+                  <img src={img.url} alt={img.description || '词条图片'} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-[#0c0a08]/90 via-[#0c0a08]/50 to-transparent px-2.5 pb-2 pt-6">
+                  <div className="flex items-center gap-1">
+                    <button
+                      type="button"
+                      aria-label="赞同"
+                      onClick={() => handleVote(item.id, 'up')}
+                      className="focus-ring flex items-center gap-1 rounded-sm px-1.5 py-1 text-xs text-[#8a7e65] transition-colors hover:text-[#c9a24d]"
+                    >
+                      <ThumbsUp size={11} aria-hidden="true" />
+                    </button>
+                    <span className="font-ink text-xs text-[#f4ecd1]">{item.votes}</span>
+                    <button
+                      type="button"
+                      aria-label="反对"
+                      onClick={() => handleVote(item.id, 'down')}
+                      className="focus-ring flex items-center gap-1 rounded-sm px-1.5 py-1 text-xs text-[#8a7e65] transition-colors hover:text-[#d4756b]"
+                    >
+                      <ThumbsDown size={11} aria-hidden="true" />
+                    </button>
+                  </div>
+                  {verified && (
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(item.id)}
+                      className="text-[#8a7e65]/50 transition-colors hover:text-[#d4756b]"
+                    >
+                      <Trash2 size={12} aria-hidden="true" />
+                    </button>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+        {hasMore && <div ref={observerRef} className="mt-4 py-4 text-center text-sm text-[#8a7e65]">加载中...</div>}
+        {!hasMore && sorted.length > PAGE_SIZE && (
+          <p className="mt-3 text-center text-xs text-[#6b614e]">已展示全部 {sorted.length} 条</p>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-3">
       {displayItems.map((item, index) => (
@@ -88,22 +156,6 @@ export default function VoteList({ entryId, type, items, category, onDelete }: V
                 <p className="text-sm leading-[1.85] text-[#c9be9f]">
                   {(item as DescCandidate).content}
                 </p>
-              )}
-
-              {type === 'image' && (
-                <div>
-                  {(item as ImageCandidate).url ? (
-                    <img
-                      src={(item as ImageCandidate).url}
-                      alt={(item as ImageCandidate).description || '词条候选图片'}
-                      className="max-h-72 rounded-md border border-[#c9a24d]/10 object-cover"
-                    />
-                  ) : (
-                    <div className="grid h-40 place-items-center rounded-md border border-[#c9a24d]/10 bg-[#0c0a08]/80 text-sm text-[#8a7e65]">
-                      暂无图片
-                    </div>
-                  )}
-                </div>
               )}
 
               {type === 'avatar' && (
@@ -183,15 +235,9 @@ export default function VoteList({ entryId, type, items, category, onDelete }: V
           </div>
         </article>
       ))}
-
-      {sorted.length > 3 && (
-        <button
-          type="button"
-          onClick={() => setExpanded(!expanded)}
-          className="focus-ring min-h-11 w-full rounded-md text-center text-sm text-[#8a7e65] transition-colors hover:bg-white/[0.03] hover:text-[#c9be9f]"
-        >
-          {expanded ? '收起' : `查看全部 ${sorted.length} 条`}
-        </button>
+      {hasMore && <div ref={observerRef} className="py-4 text-center text-sm text-[#8a7e65]">加载中...</div>}
+      {!hasMore && sorted.length > PAGE_SIZE && (
+        <p className="text-center text-xs text-[#6b614e]">已展示全部 {sorted.length} 条</p>
       )}
     </div>
   )
